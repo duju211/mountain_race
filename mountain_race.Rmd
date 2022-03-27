@@ -10,6 +10,9 @@ output:
         google: Source Sans Pro
       code_font:
         google: Fira Code
+repository_url: https://github.com/duju211/mountain_race
+creative_commons: CC BY
+base_url: https://www.datannery.com/posts/mountain-race/
 ---
 
 ```{r setup, include=FALSE}
