@@ -14,6 +14,12 @@ iconic climbs.
 In the following post, I will let different versions of me race against
 each other on my favorite local climb!
 
+In order to reproduce the analysis, perform the following steps:
+
+-   Clone the [repository](https://github.com/duju211/mountain_race)
+-   Install the packages listed in the `libraries.R` file
+-   Run the target pipeline by executing `targets::tar_make()` command
+
 # Data
 
 The data originates from my personal Strava data. If you have a Strava
