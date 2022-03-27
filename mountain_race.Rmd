@@ -1,7 +1,7 @@
 ---
 title: "Mountain Race"
 description: |
-  Animation of my Strava efforst on one of my local climbs
+  Animation of my Strava efforts on one of my local climbs
 author:
   - name: Julian During
 date: "`r Sys.Date()`"
