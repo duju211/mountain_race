@@ -83,7 +83,7 @@ Use `ggplot2::theme_void` as a general theme:
 ```{r, file="R/vis_lochen.R"}
 ```
 
-```{r gg_lochen, echo=FALSE}
+```{r gg_lochen, echo=FALSE, preview=TRUE}
 tar_read(gg_lochen_raw)
 ```
 
