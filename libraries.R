@@ -1,0 +1,16 @@
+library(tarchetypes)
+library(conflicted)
+library(transformr)
+library(gganimate)
+library(tidyverse)
+library(lubridate)
+library(targets)
+library(distill)
+library(scales)
+library(gifski)
+library(fs)
+
+conflict_prefer("filter", "dplyr")
+conflict_prefer("lag", "dplyr")
+
+theme_set(theme_void())

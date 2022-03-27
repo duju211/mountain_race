@@ -1,0 +1,137 @@
+---
+title: "Mountain Race"
+date: '`r Sys.Date()`'
+monofont: "Fira Code"
+output:
+  html_document:
+    theme:
+      version: 4
+      base_font:
+        google: Source Sans Pro
+      code_font:
+        google: Fira Code
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+source("libraries.R")
+```
+
+# Idea
+
+Every cyclist has a particular important climb.
+It might not be a big deal to anyone else, but any climb can be important!
+
+My favorite local climb goes by the name of 'Lochen'.
+It's located outside of my local
+hometown Balingen in the southwest of Germany. It's about 4.4 kilometers long
+with an average gradient of 6.9%.
+
+This doesn't sound like a hard climb. It might not even register as a
+regular big climb for most cyclists. But for me it's one of the most iconic
+climbs.
+
+In the following post, I will let different versions of me race against each
+other on my favorite local climb!
+
+# Data
+
+The data originates from my personal Strava data. 
+If you have a Strava account and want to query your data like I do here, you
+can have a look at one of my
+[previous posts](https://www.datannery.com/posts/strava-data/).
+
+The data are a bunch of arrow files, that you can via dpylr syntax
+thanks to the DuckDB package.
+
+Deselect `heartrate` measurements and restrict the spatial data to a bounding
+box. Add information about the type and the start date of each
+activity.
+
+```{r lochen, file="https://raw.githubusercontent.com/duju211/pin_strava/master/R/poi.R"}
+```
+
+```{r, echo=FALSE}
+tar_read(df_lochen_raw)
+```
+
+Further preprocess the raw data. Keep only rows, where I was moving and turn
+the start date from datetime to date. Adjust
+the `time` column so that every activity starts at time 0.
+
+
+```{r vis_lochen, file="R/lochen.R"}
+```
+
+```{r, echo=FALSE}
+tar_read(df_lochen)
+```
+
+
+# Visualisation
+
+Make a first static ggplot visualisation. Keep the plot rather minimal.
+Use `ggplot2::theme_void` as a general theme:
+
+```{r, file="R/vis_lochen.R"}
+```
+
+```{r gg_lochen, echo=FALSE}
+tar_read(gg_lochen_raw)
+```
+
+As you can see there are lot of paths on one road. These are my
+bike rides on the 'Lochen' pass.
+
+Some paths don't seem to match. These are activities of another
+type in the same region as my bike rides.
+These activities don't use the main road and stand out in the
+plot.
+
+To further explore the data, make a first animated visualisation with
+the `gganimate` package:
+
+```{r, file="R/vis_anim_lochen.R"}
+```
+
+```{r, echo=FALSE}
+knitr::include_graphics(tar_read(gif_anim_lochen))
+```
+
+In this animated version of the plot, you can see that there are further
+problems in the data. Not all bike rides start at the bottom of the climb.
+You can guess which activities start at the top of the climb, by looking 
+at the general speed of the animation :). Determine these activities:
+
+```{r, file="R/wrong_direction.R"}
+```
+
+Filter the activities for bike rides.
+Exclude activities that start at the top of the climb. Repeat the above
+animated plot:
+
+```{r, file="R/lochen_ride.R"}
+```
+
+```{r, echo=FALSE}
+knitr::include_graphics(tar_read(gif_anim_lochen_ride))
+```
+
+Now it looks much cleaner and the rides are more comparable to one another.
+
+For the final version of the animation, add small points to point out my
+position at the time. Color these positions by the `year` of the activity
+Reduce the
+speed of the animation a little bit, to display smaller differences in the
+rides.
+
+```{r, file="R/vis_anim_lochen_final.R"}
+```
+
+```{r, echo=FALSE}
+knitr::include_graphics(tar_read(gif_anim_lochen_ride_final))
+```
+
+I very much like how the plot turned out. I hope I can add many more layers
+to this animation in the future!
