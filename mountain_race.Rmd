@@ -1,15 +1,11 @@
 ---
 title: "Mountain Race"
-date: '`r Sys.Date()`'
-monofont: "Fira Code"
-output:
-  html_document:
-    theme:
-      version: 4
-      base_font:
-        google: Source Sans Pro
-      code_font:
-        google: Fira Code
+description: |
+  Animation of my Strava efforst on one of my local climbs
+author:
+  - name: Julian During
+date: "`r Sys.Date()`"
+output: html_document
 repository_url: https://github.com/duju211/mountain_race
 creative_commons: CC BY
 base_url: https://www.datannery.com/posts/mountain-race/
