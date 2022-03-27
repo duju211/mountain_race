@@ -9,6 +9,7 @@ output: html_document
 repository_url: https://github.com/duju211/mountain_race
 creative_commons: CC BY
 base_url: https://www.datannery.com/posts/mountain-race/
+preview: https://github.com/duju211/mountain_race/blob/master/README_files/figure-markdown_strict/gg_lochen-1.png?raw=true
 ---
 
 ```{r setup, include=FALSE}
@@ -83,7 +84,7 @@ Use `ggplot2::theme_void` as a general theme:
 ```{r, file="R/vis_lochen.R"}
 ```
 
-```{r gg_lochen, echo=FALSE, preview=TRUE}
+```{r gg_lochen, echo=FALSE}
 tar_read(gg_lochen_raw)
 ```
 
