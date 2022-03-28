@@ -22,12 +22,12 @@ In order to reproduce the analysis, perform the following steps:
 
 # Data
 
-The data originates from my personal Strava data. If you have a Strava
-account and want to query your data like I do here, you can have a look
-at one of my [previous
+The data originates from my personal Strava account. If you have a
+Strava account and want to query your data like I do here, you can have
+a look at one of my [previous
 posts](https://www.datannery.com/posts/strava-data/).
 
-The data are a bunch of arrow files, that you can via dpylr syntax
+The data are a bunch of arrow files, that you can query via dpylr syntax
 thanks to the DuckDB package.
 
 Deselect `heartrate` measurements and restrict the spatial data to a
@@ -141,7 +141,7 @@ the `gganimate` package:
 In this animated version of the plot, you can see that there are further
 problems in the data. Not all bike rides start at the bottom of the
 climb. You can guess which activities start at the top of the climb, by
-looking at the general speed of the animation :). Determine these
+looking at the general speed of the animation. Determine these
 activities:
 
     wrong_direction <- function(df_lochen) {
