@@ -85,7 +85,7 @@ Use `ggplot2::theme_void` as a general theme:
 ```
 
 ```{r gg_lochen, echo=FALSE}
-tar_read(gg_lochen_raw)
+tar_read(gg_lochen)
 ```
 
 As you can see there are lot of paths on one road. These are my
